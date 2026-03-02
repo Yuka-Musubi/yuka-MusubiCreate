@@ -320,12 +320,11 @@ h6 {
 }
 
 .hero-profile-img {
-    width: 100%;
-    height: 110%;
-    /* Make image slightly taller than container to allow shifting down */
-    object-fit: cover;
-    object-position: center top;
-    /* Shift focus to top part */
+    width: 92%;
+    /* Scale down slightly to fit head in circle */
+    height: auto;
+    object-fit: contain;
+    object-position: bottom center;
 }
 
 .hero-subtitle {
