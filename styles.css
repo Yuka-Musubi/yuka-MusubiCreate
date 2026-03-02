@@ -312,19 +312,24 @@ h6 {
     overflow: hidden;
     position: relative;
     box-shadow: var(--shadow-soft);
+    background-color: var(--bg-soft);
+    /* Use flex to align the image to the very bottom */
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    /* Align bottom to lower the inner image */
-    background-color: var(--bg-soft);
 }
 
 .hero-profile-img {
-    width: 92%;
-    /* Scale down slightly to fit head in circle */
+    width: 85%;
+    /* Make the person small enough to easily fit without hitting the top */
     height: auto;
+    max-height: 95%;
+    /* Strictly prevent it from reaching the top edge */
     object-fit: contain;
     object-position: bottom center;
+    /* Force bottom alignment */
+    transform: translateY(2%);
+    /* Slight nudge downwards to hide the cut body edge if any */
 }
 
 .hero-subtitle {
