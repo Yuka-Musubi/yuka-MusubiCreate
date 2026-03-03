@@ -312,7 +312,8 @@ h6 {
     overflow: hidden;
     position: relative;
     box-shadow: var(--shadow-soft);
-    background-color: var(--bg-soft);
+    background-color: var(--bg-color);
+    /* Matches the main cream background */
     /* Use flex to align the image to the very bottom */
     display: flex;
     justify-content: center;
@@ -320,16 +321,14 @@ h6 {
 }
 
 .hero-profile-img {
-    width: 85%;
-    /* Make the person small enough to easily fit without hitting the top */
-    height: auto;
-    max-height: 95%;
-    /* Strictly prevent it from reaching the top edge */
+    width: 100%;
+    height: 90%;
+    /* Strictly limit image height to 90% of the circle to prevent top cropping */
     object-fit: contain;
     object-position: bottom center;
     /* Force bottom alignment */
-    transform: translateY(2%);
-    /* Slight nudge downwards to hide the cut body edge if any */
+    mix-blend-mode: multiply;
+    /* This removes the white background of the image to blend perfectly */
 }
 
 .hero-subtitle {
