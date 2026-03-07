@@ -585,20 +585,73 @@ h6 {
 }
 
 /* =========================================================================
-   Testimonials Placeholder
+   Voices Section
    ========================================================================= */
-.testimonials-placeholder {
-    background-color: var(--bg-color);
-    border: 1px dashed rgba(0, 0, 0, 0.1);
-    border-radius: var(--radius-lg);
-    padding: 60px 40px;
-    text-align: center;
+.voices-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.placeholder-text {
-    color: var(--text-light);
-    font-style: italic;
+.voice-card {
+    background: var(--bg-color);
+    padding: 40px;
+}
+
+.voice-header {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.voice-title {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.voice-client {
+    font-weight: 600;
+    color: var(--text-main);
     font-size: 1.05rem;
+}
+
+.voice-details {
+    background: var(--bg-white);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent);
+}
+
+.voice-details p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.voice-details p:last-child {
+    margin-bottom: 0;
+}
+
+.voice-body p {
+    margin-bottom: 1rem;
+}
+
+.voice-body p:last-child {
+    margin-bottom: 0;
+}
+
+.voice-body strong {
+    color: var(--accent);
+}
+
+/* =========================================================================
+   Portfolio Link Section
+   ========================================================================= */
+.portfolio-link-section {
+    background-color: var(--bg-soft);
 }
 
 /* =========================================================================
