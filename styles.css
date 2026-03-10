@@ -149,6 +149,10 @@ h6 {
     background-color: var(--bg-white);
 }
 
+.sp-only {
+    display: none;
+}
+
 .shadow-soft {
     box-shadow: var(--shadow-soft);
     border-radius: var(--radius-lg);
@@ -905,6 +909,10 @@ h6 {
 
     .section-spacing {
         padding: 80px 0;
+    }
+
+    .sp-only {
+        display: block;
     }
 
     .header-container {
