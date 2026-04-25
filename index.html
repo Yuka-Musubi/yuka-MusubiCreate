@@ -90,7 +90,7 @@
         <!-- Profile Section moved here below Hero -->
         <section class="profile section-spacing">
             <div class="container fade-in">
-                <h2 class="section-title">プロフィール</h2>
+                <h2 class="section-title">Profile</h2>
 
                 <div class="profile-card mt-5 shadow-soft profile-card-vertical">
                     <!-- Text on top -->
@@ -123,7 +123,7 @@
         <!-- Intro -->
         <section class="intro section-spacing">
             <div class="container text-center fade-in">
-                <h2 class="section-title">ビジョン</h2>
+                <h2 class="section-title">Vision</h2>
                 <div class="intro-texts">
                     <p class="intro-lead">あなたの魅力をマンガにして、集客と売上向上を叶えます。</p>
                     <p>ただ制作するだけではなく、経営者の想いやサービス価値を言語化し、視覚化することを重視しています。</p>
@@ -218,11 +218,11 @@
                     <p class="text-center mb-4">制作したメタ広告では、通常バナー比でクリック率70倍の実績も。伝え方を変えることで、反応は大きく変わります。</p>
                     <div class="manga-grid">
                         <div class="manga-card shadow-soft">
-                            <img src="./images/manga1.png" alt="AIマンガ事例1" loading="lazy"
+                            <img src="./images/manga1.png" alt="AIマンガ事例1" loading="lazy" class="zoomable-image"
                                 onerror="this.onerror=null;this.src='./manga1.png';">
                         </div>
                         <div class="manga-card shadow-soft">
-                            <img src="./images/manga2.png" alt="AIマンガ事例2" loading="lazy"
+                            <img src="./images/manga2.png" alt="AIマンガ事例2" loading="lazy" class="zoomable-image"
                                 onerror="this.onerror=null;this.src='./manga2.png';">
                         </div>
                     </div>
@@ -331,6 +331,11 @@
 
     </main>
 
+    <div id="image-modal" class="image-modal" aria-hidden="true">
+        <button id="image-modal-close" class="image-modal-close" aria-label="拡大画像を閉じる">×</button>
+        <img id="image-modal-img" src="" alt="拡大画像">
+    </div>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
@@ -354,6 +359,43 @@
         </div>
     </footer>
 
+<script>
+    (function () {
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("image-modal-img");
+        const closeBtn = document.getElementById("image-modal-close");
+        const zoomableImages = document.querySelectorAll(".zoomable-image");
+
+        const closeModal = function () {
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            modalImg.src = "";
+            document.body.style.overflow = "";
+        };
+
+        zoomableImages.forEach(function (img) {
+            img.addEventListener("click", function () {
+                modalImg.src = img.currentSrc || img.src;
+                modalImg.alt = img.alt;
+                modal.classList.add("is-open");
+                modal.setAttribute("aria-hidden", "false");
+                document.body.style.overflow = "hidden";
+            });
+        });
+
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", function (event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Escape" && modal.classList.contains("is-open")) {
+                closeModal();
+            }
+        });
+    }());
+</script>
 </body>
 
 </html>
