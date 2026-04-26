@@ -1005,6 +1005,47 @@ h6 {
         font-size: 2.2rem;
     }
 
+    /* Keep larger typography on PC, but restore original sizing on mobile */
+    .profile-role {
+        font-size: 0.9rem;
+    }
+
+    .profile-name {
+        font-size: 2rem;
+    }
+
+    .profile-name span {
+        font-size: 0.9rem;
+    }
+
+    .profile-yago {
+        font-size: 1rem;
+    }
+
+    .profile-list dt {
+        font-size: 1rem;
+    }
+
+    .profile-list dd {
+        font-size: 0.95rem;
+    }
+
+    .card p {
+        font-size: 0.95rem;
+    }
+
+    .process-list li {
+        font-size: 0.95rem;
+    }
+
+    .voice-details p {
+        font-size: 0.95rem;
+    }
+
+    .voice-body p {
+        font-size: 1rem;
+    }
+
     .hero-profile-wrapper {
         max-width: 320px;
     }
