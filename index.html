@@ -87,6 +87,72 @@
             <div class="hero-bg-decoration"></div>
         </section>
 
+        <!-- My Story (Manga) Section -->
+        <section class="my-story section-spacing">
+            <div class="container fade-in">
+                <h2 class="section-title">My Story</h2>
+                <p class="section-subtitle">マンガで読む、私のこと</p>
+
+                <div class="story-catch">
+                    <p class="story-catch-headline">
+                        言葉だけでは、伝わらない。
+                    </p>
+                    <p class="story-catch-sub">
+                        だから私は、自分のことを"マンガ"にしました。<br>
+                        読み終える頃には、あなたのビジネスにも<br>
+                        <span class="emph">"伝わる見せ方"</span>があると感じていただけるはずです。
+                    </p>
+                </div>
+
+                <div class="manga-stack">
+                    <figure class="manga-panel" data-index="0">
+                        <picture>
+                            <source srcset="./images/comic/manga_1.webp" type="image/webp">
+                            <img src="./images/comic/manga_1.webp" alt="自己紹介マンガ 1コマ目 - 伝えたい想いはあるのに、どう表現すればいいんだろう？" loading="lazy">
+                        </picture>
+                        <figcaption class="manga-caption">1 / 4</figcaption>
+                    </figure>
+                    <figure class="manga-panel" data-index="1">
+                        <picture>
+                            <source srcset="./images/comic/manga_2.webp" type="image/webp">
+                            <img src="./images/comic/manga_2.webp" alt="自己紹介マンガ 2コマ目 - 保健室の先生として10年以上、心の声を言語化してきました" loading="lazy">
+                        </picture>
+                        <figcaption class="manga-caption">2 / 4</figcaption>
+                    </figure>
+                    <figure class="manga-panel" data-index="2">
+                        <picture>
+                            <source srcset="./images/comic/manga_3.webp" type="image/webp">
+                            <img src="./images/comic/manga_3.webp" alt="自己紹介マンガ 3コマ目" loading="lazy">
+                        </picture>
+                        <figcaption class="manga-caption">3 / 4</figcaption>
+                    </figure>
+                    <figure class="manga-panel" data-index="3">
+                        <picture>
+                            <source srcset="./images/comic/manga_4.webp" type="image/webp">
+                            <img src="./images/comic/manga_4.webp" alt="自己紹介マンガ 4コマ目" loading="lazy">
+                        </picture>
+                        <figcaption class="manga-caption">4 / 4</figcaption>
+                    </figure>
+                </div>
+
+                <div class="story-cta">
+                    <p class="story-cta-text">
+                        あなたのビジネスにも、こんな"見せ方"を作りませんか？
+                    </p>
+                    <a href="#booking" class="btn btn-primary">無料相談はこちら</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox (overlay shown when manga panel is clicked) -->
+        <div id="manga-lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-label="マンガ拡大表示">
+            <button class="lightbox-close" aria-label="閉じる">&times;</button>
+            <button class="lightbox-prev" aria-label="前のページ">&#10094;</button>
+            <img class="lightbox-img" src="" alt="">
+            <button class="lightbox-next" aria-label="次のページ">&#10095;</button>
+            <div class="lightbox-counter"></div>
+        </div>
+
         <!-- Profile Section moved here below Hero -->
         <section class="profile section-spacing">
             <div class="container fade-in">
@@ -394,6 +460,113 @@
                 closeModal();
             }
         });
+    }());
+
+    // ====== Manga Lightbox ======
+    (function () {
+        var panels = document.querySelectorAll('.manga-panel');
+        if (!panels.length) return;
+
+        var lightbox = document.getElementById('manga-lightbox');
+        if (!lightbox) return;
+
+        var lightboxImg = lightbox.querySelector('.lightbox-img');
+        var btnClose = lightbox.querySelector('.lightbox-close');
+        var btnPrev = lightbox.querySelector('.lightbox-prev');
+        var btnNext = lightbox.querySelector('.lightbox-next');
+        var counter = lightbox.querySelector('.lightbox-counter');
+
+        // Collect images and alt text
+        var items = [];
+        panels.forEach(function (panel, idx) {
+            var img = panel.querySelector('img');
+            items.push({
+                src: img.getAttribute('src'),
+                alt: img.getAttribute('alt') || ''
+            });
+            panel.addEventListener('click', function () {
+                openLightbox(idx);
+            });
+            // Keyboard accessibility
+            panel.setAttribute('tabindex', '0');
+            panel.setAttribute('role', 'button');
+            panel.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(idx);
+                }
+            });
+        });
+
+        var currentIndex = 0;
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateImage();
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        function updateImage() {
+            lightboxImg.src = items[currentIndex].src;
+            lightboxImg.alt = items[currentIndex].alt;
+            counter.textContent = (currentIndex + 1) + ' / ' + items.length;
+            btnPrev.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+            btnNext.style.visibility = currentIndex === items.length - 1 ? 'hidden' : 'visible';
+        }
+
+        function showPrev() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateImage();
+            }
+        }
+
+        function showNext() {
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+                updateImage();
+            }
+        }
+
+        btnClose.addEventListener('click', closeLightbox);
+        btnPrev.addEventListener('click', showPrev);
+        btnNext.addEventListener('click', showNext);
+
+        // Click outside image to close
+        lightbox.addEventListener('click', function (e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard controls
+        document.addEventListener('keydown', function (e) {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            else if (e.key === 'ArrowLeft') showPrev();
+            else if (e.key === 'ArrowRight') showNext();
+        });
+
+        // Swipe support (mobile)
+        var touchStartX = 0;
+        lightbox.addEventListener('touchstart', function (e) {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        lightbox.addEventListener('touchend', function (e) {
+            var diff = e.changedTouches[0].clientX - touchStartX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) showPrev();
+                else showNext();
+            }
+        }, { passive: true });
     }());
 </script>
 </body>
