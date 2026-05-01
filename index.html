@@ -80,7 +80,7 @@
                 </div>
                 <div class="hero-image fade-in">
                     <div class="hero-profile-wrapper">
-                        <img src="./images/profile2.png" alt="鈴木 祐佳 ポートフォリオ画像" class="hero-profile-img" loading="lazy">
+                        <img src="./images/profile2.png" alt="鈴木 祐佳 ポートフォリオ画像" class="hero-profile-img clickable-image" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
         <section class="my-story section-spacing">
             <div class="container fade-in">
                 <h2 class="section-title">My Story</h2>
-                <p class="section-subtitle">マンガで読む、私のこと</p>
+                <p class="section-subtitle text-center">マンガで読む、私のこと</p>
 
                 <div class="story-catch">
                     <p class="story-catch-headline">
@@ -137,7 +137,7 @@
 
                 <div class="story-cta">
                     <p class="story-cta-text">
-                        あなたのビジネスにも、こんな"見せ方"を作りませんか？
+                        あなたのビジネスにも、<br class="mobile-only">こんな"見せ方"を作りませんか？
                     </p>
                     <a href="#booking" class="btn btn-primary">無料相談はこちら</a>
                 </div>
@@ -180,7 +180,7 @@
                     <!-- Image at bottom -->
                     <div class="profile-image-col">
                         <!-- Requested manga3.png in Profile, now stacked vertically below text -->
-                        <img src="./images/manga3.png" alt="プロフィール/マンガ" class="profile-main-img" loading="lazy">
+                        <img src="./images/manga3.png" alt="プロフィール/マンガ" class="profile-main-img clickable-image" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -197,9 +197,9 @@
                 </div>
                 <!-- Requested KDP1.png and KDP2.png images under Vision -->
                 <div class="vision-images mt-5 fade-in">
-                    <div class="vision-img-wrapper"><img src="./images/KDP1.png" alt="制作・運用事例1" class="shadow-soft"
+                    <div class="vision-img-wrapper"><img src="./images/KDP1.png" alt="制作・運用事例1" class="shadow-soft clickable-image"
                             loading="lazy"></div>
-                    <div class="vision-img-wrapper"><img src="./images/KDP2.png" alt="制作・運用事例2" class="shadow-soft"
+                    <div class="vision-img-wrapper"><img src="./images/KDP2.png" alt="制作・運用事例2" class="shadow-soft clickable-image"
                             loading="lazy"></div>
                 </div>
             </div>
@@ -284,11 +284,11 @@
                     <p class="text-center mb-4">制作したメタ広告では、通常バナー比でクリック率70倍の実績も。伝え方を変えることで、反応は大きく変わります。</p>
                     <div class="manga-grid">
                         <div class="manga-card shadow-soft">
-                            <img src="./images/manga1.png" alt="AIマンガ事例1" loading="lazy" class="zoomable-image"
+                            <img src="./images/manga1.png" alt="AIマンガ事例1" loading="lazy" class="clickable-image"
                                 onerror="this.onerror=null;this.src='./manga1.png';">
                         </div>
                         <div class="manga-card shadow-soft">
-                            <img src="./images/manga2.png" alt="AIマンガ事例2" loading="lazy" class="zoomable-image"
+                            <img src="./images/manga2.png" alt="AIマンガ事例2" loading="lazy" class="clickable-image"
                                 onerror="this.onerror=null;this.src='./manga2.png';">
                         </div>
                     </div>
@@ -397,11 +397,6 @@
 
     </main>
 
-    <div id="image-modal" class="image-modal" aria-hidden="true">
-        <button id="image-modal-close" class="image-modal-close" aria-label="拡大画像を閉じる">×</button>
-        <img id="image-modal-img" src="" alt="拡大画像">
-    </div>
-
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
@@ -426,47 +421,10 @@
     </footer>
 
 <script>
+    // ====== Unified Image Lightbox ======
+    // Handles both: (1) manga story 4-panel sequence (with prev/next nav)
+    //               (2) other single clickable images (no nav)
     (function () {
-        const modal = document.getElementById("image-modal");
-        const modalImg = document.getElementById("image-modal-img");
-        const closeBtn = document.getElementById("image-modal-close");
-        const zoomableImages = document.querySelectorAll(".zoomable-image");
-
-        const closeModal = function () {
-            modal.classList.remove("is-open");
-            modal.setAttribute("aria-hidden", "true");
-            modalImg.src = "";
-            document.body.style.overflow = "";
-        };
-
-        zoomableImages.forEach(function (img) {
-            img.addEventListener("click", function () {
-                modalImg.src = img.currentSrc || img.src;
-                modalImg.alt = img.alt;
-                modal.classList.add("is-open");
-                modal.setAttribute("aria-hidden", "false");
-                document.body.style.overflow = "hidden";
-            });
-        });
-
-        closeBtn.addEventListener("click", closeModal);
-        modal.addEventListener("click", function (event) {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-        document.addEventListener("keydown", function (event) {
-            if (event.key === "Escape" && modal.classList.contains("is-open")) {
-                closeModal();
-            }
-        });
-    }());
-
-    // ====== Manga Lightbox ======
-    (function () {
-        var panels = document.querySelectorAll('.manga-panel');
-        if (!panels.length) return;
-
         var lightbox = document.getElementById('manga-lightbox');
         if (!lightbox) return;
 
@@ -476,32 +434,25 @@
         var btnNext = lightbox.querySelector('.lightbox-next');
         var counter = lightbox.querySelector('.lightbox-counter');
 
-        // Collect images and alt text
-        var items = [];
-        panels.forEach(function (panel, idx) {
+        // Build the manga story group (linked sequence)
+        var mangaPanels = document.querySelectorAll('.manga-panel');
+        var mangaItems = [];
+        mangaPanels.forEach(function (panel) {
             var img = panel.querySelector('img');
-            items.push({
+            mangaItems.push({
                 src: img.getAttribute('src'),
                 alt: img.getAttribute('alt') || ''
             });
-            panel.addEventListener('click', function () {
-                openLightbox(idx);
-            });
-            // Keyboard accessibility
-            panel.setAttribute('tabindex', '0');
-            panel.setAttribute('role', 'button');
-            panel.addEventListener('keydown', function (e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    openLightbox(idx);
-                }
-            });
         });
 
+        var currentItems = [];
         var currentIndex = 0;
+        var hasNav = false;
 
-        function openLightbox(index) {
+        function openLightbox(items, index, withNav) {
+            currentItems = items;
             currentIndex = index;
+            hasNav = withNav && items.length > 1;
             updateImage();
             lightbox.classList.add('active');
             lightbox.setAttribute('aria-hidden', 'false');
@@ -515,39 +466,82 @@
         }
 
         function updateImage() {
-            lightboxImg.src = items[currentIndex].src;
-            lightboxImg.alt = items[currentIndex].alt;
-            counter.textContent = (currentIndex + 1) + ' / ' + items.length;
-            btnPrev.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
-            btnNext.style.visibility = currentIndex === items.length - 1 ? 'hidden' : 'visible';
+            lightboxImg.src = currentItems[currentIndex].src;
+            lightboxImg.alt = currentItems[currentIndex].alt;
+            if (hasNav) {
+                counter.style.display = '';
+                counter.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
+                btnPrev.style.display = '';
+                btnNext.style.display = '';
+                btnPrev.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+                btnNext.style.visibility = currentIndex === currentItems.length - 1 ? 'hidden' : 'visible';
+            } else {
+                counter.style.display = 'none';
+                btnPrev.style.display = 'none';
+                btnNext.style.display = 'none';
+            }
         }
 
         function showPrev() {
-            if (currentIndex > 0) {
+            if (hasNav && currentIndex > 0) {
                 currentIndex--;
                 updateImage();
             }
         }
 
         function showNext() {
-            if (currentIndex < items.length - 1) {
+            if (hasNav && currentIndex < currentItems.length - 1) {
                 currentIndex++;
                 updateImage();
             }
         }
 
+        // (1) Bind manga panels - opens with nav
+        mangaPanels.forEach(function (panel, idx) {
+            panel.setAttribute('tabindex', '0');
+            panel.setAttribute('role', 'button');
+            panel.addEventListener('click', function () {
+                openLightbox(mangaItems, idx, true);
+            });
+            panel.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox(mangaItems, idx, true);
+                }
+            });
+        });
+
+        // (2) Bind every other clickable image - opens single (no nav)
+        document.querySelectorAll('.clickable-image').forEach(function (img) {
+            img.style.cursor = 'zoom-in';
+            img.setAttribute('tabindex', '0');
+            img.setAttribute('role', 'button');
+            img.addEventListener('click', function () {
+                openLightbox([{
+                    src: img.currentSrc || img.src,
+                    alt: img.alt || ''
+                }], 0, false);
+            });
+            img.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    openLightbox([{
+                        src: img.currentSrc || img.src,
+                        alt: img.alt || ''
+                    }], 0, false);
+                }
+            });
+        });
+
+        // Common controls
         btnClose.addEventListener('click', closeLightbox);
         btnPrev.addEventListener('click', showPrev);
         btnNext.addEventListener('click', showNext);
 
-        // Click outside image to close
         lightbox.addEventListener('click', function (e) {
-            if (e.target === lightbox) {
-                closeLightbox();
-            }
+            if (e.target === lightbox) closeLightbox();
         });
 
-        // Keyboard controls
         document.addEventListener('keydown', function (e) {
             if (!lightbox.classList.contains('active')) return;
             if (e.key === 'Escape') closeLightbox();
@@ -555,12 +549,13 @@
             else if (e.key === 'ArrowRight') showNext();
         });
 
-        // Swipe support (mobile)
+        // Swipe support (mobile, only for groups with nav)
         var touchStartX = 0;
         lightbox.addEventListener('touchstart', function (e) {
             touchStartX = e.touches[0].clientX;
         }, { passive: true });
         lightbox.addEventListener('touchend', function (e) {
+            if (!hasNav) return;
             var diff = e.changedTouches[0].clientX - touchStartX;
             if (Math.abs(diff) > 50) {
                 if (diff > 0) showPrev();

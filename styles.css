@@ -1249,6 +1249,28 @@ h6 {
     }
 }
 
+/* Mobile-only line break (shown only on mobile screens) */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: inline;
+    }
+}
+
+/* Clickable / zoomable image cursor hint */
+.clickable-image {
+    cursor: zoom-in;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+}
+
+.clickable-image:hover {
+    opacity: 0.92;
+    transform: translateY(-2px);
+}
+
 /* =========================================================================
    Lightbox (Manga Enlarged View)
    ========================================================================= */
