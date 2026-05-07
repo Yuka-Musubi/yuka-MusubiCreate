@@ -1209,6 +1209,36 @@ h6 {
     pointer-events: none;
 }
 
+/* Story Video */
+.story-video {
+    max-width: 620px;
+    margin: 48px auto 0;
+    text-align: center;
+}
+
+.story-video-heading {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--accent, var(--text-main));
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.story-video-wrapper {
+    position: relative;
+    background: var(--bg-white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+.story-video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Story CTA */
 .story-cta {
     text-align: center;
@@ -1242,6 +1272,14 @@ h6 {
 
     .manga-stack {
         gap: 20px;
+    }
+
+    .story-video {
+        margin-top: 32px;
+    }
+
+    .story-video-heading {
+        font-size: 1rem;
     }
 
     .story-cta-text {
