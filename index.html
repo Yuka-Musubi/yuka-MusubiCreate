@@ -137,12 +137,20 @@
 
                 <!-- 動画バージョン -->
                 <div class="story-video">
-                    <p class="story-video-heading">▶︎ 動画バージョンはこちら！</p>
+                    <p class="story-video-intro">
+                        マンガでお伝えしたことを、<br class="mobile-only">動画でもお話ししています🎬
+                    </p>
+                    <button type="button" class="btn btn-primary story-video-btn" id="introVideoBtn">
+                        ▶ 動画バージョンはこちら！
+                    </button>
                     <div class="story-video-wrapper">
-                        <video controls preload="metadata" playsinline poster="./images/comic/manga_1.webp">
+                        <video id="introVideo" controls preload="metadata" playsinline poster="./videos/yuka_intro_poster.jpg">
                             <source src="./videos/yuka_intro.mp4" type="video/mp4">
                             お使いのブラウザは動画再生に対応していません。
                         </video>
+                        <button type="button" class="video-play-overlay" id="videoPlayOverlay" aria-label="動画を再生">
+                            <span class="play-icon" aria-hidden="true"></span>
+                        </button>
                     </div>
                 </div>
 
@@ -592,6 +600,35 @@
                 else showNext();
             }
         }, { passive: true });
+    }());
+
+    // 動画バージョン：ボタン＆オーバーレイ制御
+    (function () {
+        var btn = document.getElementById('introVideoBtn');
+        var overlay = document.getElementById('videoPlayOverlay');
+        var video = document.getElementById('introVideo');
+        if (!video) return;
+
+        function playVideo() {
+            video.play();
+            if (overlay) overlay.classList.add('hidden');
+        }
+
+        if (btn) {
+            btn.addEventListener('click', function () {
+                video.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(playVideo, 300); // スクロール後に再生
+            });
+        }
+
+        if (overlay) {
+            overlay.addEventListener('click', playVideo);
+        }
+
+        // ネイティブの再生ボタンが押された時もオーバーレイを隠す
+        video.addEventListener('play', function () {
+            if (overlay) overlay.classList.add('hidden');
+        });
     }());
 </script>
 </body>

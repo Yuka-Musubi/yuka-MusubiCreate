@@ -1211,23 +1211,28 @@ h6 {
 
 /* Story Video */
 .story-video {
-    max-width: 620px;
-    margin: 48px auto 0;
+    max-width: 720px;
+    margin: 56px auto 0;
     text-align: center;
 }
 
-.story-video-heading {
+.story-video-intro {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
-    color: var(--accent, var(--text-main));
-    margin-bottom: 16px;
-    letter-spacing: 0.08em;
-    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    margin-bottom: 18px;
+    letter-spacing: 0.06em;
+    line-height: 1.7;
+}
+
+.story-video-btn {
+    margin-bottom: 28px;
 }
 
 .story-video-wrapper {
     position: relative;
-    background: var(--bg-white);
+    aspect-ratio: 16 / 9;
+    background: #000;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
     overflow: hidden;
@@ -1235,8 +1240,59 @@ h6 {
 
 .story-video-wrapper video {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+}
+
+/* YouTube-style play button overlay (initial state only) */
+.video-play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.18);
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s ease, background 0.3s ease;
+}
+
+.video-play-overlay:hover {
+    background: rgba(0, 0, 0, 0.28);
+}
+
+.video-play-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.play-icon {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: rgba(220, 30, 30, 0.92); /* YouTube-like red */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.play-icon::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 16px 0 16px 26px;
+    border-color: transparent transparent transparent #fff;
+    margin-left: 6px; /* visual centering of triangle */
+}
+
+.video-play-overlay:hover .play-icon {
+    transform: scale(1.08);
+    background: rgba(220, 30, 30, 1);
 }
 
 /* Story CTA */
@@ -1275,11 +1331,21 @@ h6 {
     }
 
     .story-video {
-        margin-top: 32px;
+        margin-top: 36px;
     }
 
-    .story-video-heading {
-        font-size: 1rem;
+    .story-video-intro {
+        font-size: 0.95rem;
+    }
+
+    .play-icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .play-icon::before {
+        border-width: 12px 0 12px 20px;
+        margin-left: 5px;
     }
 
     .story-cta-text {
