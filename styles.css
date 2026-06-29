@@ -314,8 +314,9 @@ h6 {
 
 .hero-content {
     width: 100%;
-    max-width: 920px;
+    max-width: 100%;
     margin: 0 auto;
+    text-align: center;
 }
 
 .hero-image {
