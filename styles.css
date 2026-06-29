@@ -1636,13 +1636,17 @@ h6 {
 .portfolio-carousel::-webkit-scrollbar-thumb { background: rgba(178, 123, 102, 0.4); border-radius: 999px; }
 .portfolio-item {
     flex: 0 0 auto;
-    width: min(360px, 72%);
+    width: 320px;
+    height: 460px;
     scroll-snap-align: center;
-    background: var(--bg-white);
+    background: var(--bg-color);
     border-radius: var(--radius-lg);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.portfolio-item img { width: 100%; height: 100%; object-fit: cover; }
+.portfolio-item img { width: 100%; height: 100%; object-fit: contain; }
 
 /* Info Modal (GAINS) */
 .info-modal {
