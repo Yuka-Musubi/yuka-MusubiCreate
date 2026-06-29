@@ -1507,3 +1507,204 @@ h6 {
         right: 8px;
     }
 }
+
+/* =========================================================================
+   2026-06-29 LP Renewal Additions（AIマンガ／新構成）
+   ========================================================================= */
+
+/* Hero keyword emphasis */
+.hero-title .em {
+    font-weight: 700;
+    background: linear-gradient(transparent 62%, rgba(178, 123, 102, 0.18) 62%);
+}
+.hero-title .em-accent { color: var(--accent); }
+
+/* Slider hint */
+.slider-hint {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+}
+.slider-hint i { margin-right: 6px; color: var(--accent); }
+
+/* My Story horizontal swipe slider */
+.manga-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 4px 20px;
+    scrollbar-width: thin;
+}
+.manga-slider::-webkit-scrollbar { height: 8px; }
+.manga-slider::-webkit-scrollbar-thumb { background: rgba(178, 123, 102, 0.4); border-radius: 999px; }
+.manga-slider .manga-panel {
+    flex: 0 0 auto;
+    width: min(420px, 78%);
+    scroll-snap-align: center;
+    margin: 0;
+}
+
+/* Manga placeholder (until image generated) */
+.manga-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: repeating-linear-gradient(45deg, #faf6ee, #faf6ee 12px, #f3ece0 12px, #f3ece0 24px);
+    border: 2px dashed var(--accent);
+    border-radius: var(--radius-md);
+    color: var(--accent);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    min-height: 220px;
+    padding: 24px;
+}
+.manga-placeholder small { color: var(--text-light); font-size: 0.85rem; margin-top: 8px; font-family: var(--font-body); }
+.manga-placeholder-wide { width: 100%; max-width: 760px; margin: 0 auto; min-height: 280px; }
+
+/* Sheet buttons (Profile) */
+.sheet-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.sheet-buttons .btn { font-size: 0.85rem; padding: 12px 20px; }
+
+/* Who I help */
+.who-lead {
+    max-width: 720px;
+    margin: 24px auto 0;
+    font-size: 1.15rem;
+    line-height: 2;
+    color: var(--text-main);
+}
+.who-lead .emph { color: var(--accent); font-weight: 600; }
+.who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+.who-card { background: var(--bg-color); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
+.who-card-media { padding: 24px 24px 0; }
+.who-card-media img { width: 100%; border-radius: var(--radius-md); }
+.who-card-body { padding: 24px 32px 36px; }
+.who-tag {
+    display: inline-block;
+    background: rgba(178, 123, 102, 0.12);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+}
+.who-card-body h3 { font-size: 1.2rem; line-height: 1.6; margin-bottom: 14px; color: var(--text-main); }
+.who-card-body p { color: var(--text-light); font-size: 1.05rem; }
+.who-trigger {
+    margin: 48px auto 0;
+    max-width: 760px;
+    text-align: center;
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    box-shadow: var(--shadow-soft);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    line-height: 1.9;
+}
+.who-trigger i { color: var(--accent); opacity: 0.5; margin: 0 6px; }
+.who-trigger strong { color: var(--accent); }
+
+/* Service main note */
+.service-main-note { max-width: 760px; margin-left: auto; margin-right: auto; color: var(--text-light); font-size: 1.05rem; }
+.service-main-note strong { color: var(--accent); }
+
+/* Portfolio carousel */
+.portfolio-carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 4px 20px;
+    scrollbar-width: thin;
+}
+.portfolio-carousel::-webkit-scrollbar { height: 8px; }
+.portfolio-carousel::-webkit-scrollbar-thumb { background: rgba(178, 123, 102, 0.4); border-radius: 999px; }
+.portfolio-item {
+    flex: 0 0 auto;
+    width: min(360px, 72%);
+    scroll-snap-align: center;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+.portfolio-item img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Info Modal (GAINS) */
+.info-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 15, 10, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: lightboxFadeIn 0.25s ease;
+}
+.info-modal.active { display: flex; }
+.info-modal-inner {
+    position: relative;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    max-width: 640px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    padding: 48px 40px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+    animation: lightboxZoomIn 0.3s ease;
+}
+.info-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--bg-color);
+    border-radius: 50%;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--text-main);
+}
+.info-modal-close:hover { background: var(--accent); color: #fff; }
+.info-modal-title { font-size: 1.6rem; text-align: center; }
+.info-modal-role { text-align: center; color: var(--accent); font-size: 0.95rem; margin-bottom: 24px; }
+.gains-block { border-top: 1px solid var(--border-color); padding: 16px 0; }
+.gains-block h4 { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; margin-bottom: 6px; }
+.gains-block h4 span {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--accent); color: #fff; font-family: var(--font-heading); font-size: 0.9rem;
+}
+.gains-block p { color: var(--text-light); font-size: 0.98rem; margin: 0; }
+.gains-trigger { margin-top: 20px; background: rgba(178, 123, 102, 0.1); border-radius: var(--radius-md); padding: 16px 20px; font-size: 0.95rem; color: var(--text-main); }
+.info-modal-actions { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
+
+@media (max-width: 768px) {
+    .who-grid { grid-template-columns: 1fr; }
+    .manga-slider .manga-panel { width: 86%; }
+    .portfolio-item { width: 82%; }
+    .who-trigger { font-size: 1.05rem; padding: 28px 20px; }
+    .info-modal-inner { padding: 40px 24px; }
+    .who-lead { font-size: 1.02rem; }
+}
+
+/* 公開版：マンガ未生成の「準備中」枠は隠す（imgに差し替えると自動表示） */
+.manga-placeholder { display: none; }
+.who-card-media:has(.manga-placeholder) { display: none; }
+.vision-images:has(.manga-placeholder) { display: none; }
