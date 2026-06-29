@@ -365,8 +365,8 @@ h6 {
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.28;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    line-height: 1.22;
     margin-bottom: 2.5rem;
     letter-spacing: 0.03em;
 }
@@ -908,7 +908,7 @@ h6 {
     }
 
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 3.4rem;
     }
 
     .hero-profile-wrapper {
@@ -1006,7 +1006,7 @@ h6 {
     }
 
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.6rem;
     }
 
     /* Keep larger typography on PC, but restore original sizing on mobile */
@@ -1708,3 +1708,38 @@ h6 {
 .manga-placeholder { display: none; }
 .who-card-media:has(.manga-placeholder) { display: none; }
 .vision-images:has(.manga-placeholder) { display: none; }
+
+/* Hero：大型タイトル＋スクロール連動パララックス（2026-06-29） */
+.hero-content { will-change: transform, opacity; }
+.hero-image { will-change: transform; }
+.scroll-indicator {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-light);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+.scroll-indicator .scroll-line {
+    width: 1px;
+    height: 50px;
+    background: linear-gradient(var(--accent), transparent);
+    animation: scrollPulse 1.8s ease-in-out infinite;
+    transform-origin: top center;
+}
+@keyframes scrollPulse {
+    0% { transform: scaleY(0); opacity: 0; }
+    45% { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(1); opacity: 0; }
+}
+@media (max-width: 768px) {
+    .scroll-indicator { display: none; }
+}

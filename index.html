@@ -25,15 +25,7 @@
             <div class="header-left">
                 <span class="logo-text">鈴木 祐佳</span>
             </div>
-            <div class="header-right">
-                <a href="https://x.com/yu_aicomic_mark?s=21" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-x-twitter"></i>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61588546809686" target="_blank"
-                    rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/yu_ai.comic.marketer?igsh=MTB5a21sbDJrM3Q1OQ%3D%3D&utm_source=qr"
-                    target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-            </div>
+            <!-- (ヘッダーSNSリンクは削除) -->
             <a href="#booking" class="btn btn-outline header-cta">ご相談・予約</a>
         </div>
     </header>
@@ -83,6 +75,7 @@
                 </div>
             </div>
             <div class="hero-bg-decoration"></div>
+            <div class="scroll-indicator"><span>SCROLL</span><span class="scroll-line"></span></div>
         </section>
 
         <!-- My Story (Manga) Section -->
@@ -195,14 +188,8 @@
                             <a href="./GAINS.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                                 <i class="fa-solid fa-file-pdf" style="margin-right:8px;"></i>GAINS（PDF）
                             </a>
-                            <a href="./GAINS.pdf" download class="btn btn-outline">
-                                <i class="fa-solid fa-download" style="margin-right:8px;"></i>ダウンロード
-                            </a>
                             <a href="./member.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
                                 <i class="fa-solid fa-file-pdf" style="margin-right:8px;"></i>略歴シート（PDF）
-                            </a>
-                            <a href="./member.pdf" download class="btn btn-outline">
-                                <i class="fa-solid fa-download" style="margin-right:8px;"></i>ダウンロード
                             </a>
                         </div>
                     </div>
@@ -452,8 +439,7 @@
             </div>
 
             <div class="info-modal-actions">
-                <a href="./GAINS.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline"><i class="fa-solid fa-file-pdf" style="margin-right:8px;"></i>PDFで見る</a>
-                <a href="./GAINS.pdf" download class="btn btn-primary"><i class="fa-solid fa-download" style="margin-right:8px;"></i>ダウンロード</a>
+                <a href="./GAINS.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fa-solid fa-file-pdf" style="margin-right:8px;"></i>PDFで見る</a>
             </div>
         </div>
     </div>
@@ -465,15 +451,7 @@
                 <div class="footer-logo">
                     <span class="logo-text">鈴木 祐佳 <br><small>Musubi Create</small></span>
                 </div>
-                <div class="sns-links footer-sns">
-                    <a href="https://x.com/yu_aicomic_mark?s=21" target="_blank" rel="noopener noreferrer">
-                        <i class="fa-brands fa-x-twitter"></i>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61588546809686" target="_blank"
-                        rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/yu_ai.comic.marketer?igsh=MTB5a21sbDJrM3Q1OQ%3D%3D&utm_source=qr"
-                        target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                </div>
+                <!-- (フッターSNSリンクは削除) -->
             </div>
             <div class="copyright">
                 <p>&copy; 2026 Musubi Create. All rights reserved.</p>
@@ -601,6 +579,27 @@
         if (btn) { btn.addEventListener('click', function () { video.scrollIntoView({ behavior: 'smooth', block: 'center' }); setTimeout(playVideo, 300); }); }
         if (overlay) { overlay.addEventListener('click', playVideo); }
         video.addEventListener('play', function () { if (overlay) overlay.classList.add('hidden'); });
+    }());
+
+    // ====== Hero scroll parallax + indicator ======
+    (function () {
+        var content = document.querySelector('.hero-content');
+        var image = document.querySelector('.hero-image');
+        var indicator = document.querySelector('.scroll-indicator');
+        if (!content) return;
+        var ticking = false;
+        function update() {
+            var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+            content.style.transform = 'translateY(' + (y * 0.32).toFixed(1) + 'px)';
+            content.style.opacity = Math.max(0, 1 - y / 520).toFixed(3);
+            if (image) image.style.transform = 'translateY(' + (y * 0.14).toFixed(1) + 'px)';
+            if (indicator) indicator.style.opacity = Math.max(0, 1 - y / 180).toFixed(3);
+            ticking = false;
+        }
+        window.addEventListener('scroll', function () {
+            if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+        }, { passive: true });
+        update();
     }());
 </script>
 </body>
