@@ -1755,6 +1755,58 @@ h6 {
 /* ヒーロー：人物イラスト削除に伴い1カラム中央レイアウトへ（2026-06-29） */
 .hero-bg-decoration { display: none; }
 
+/* =========================================================================
+   2026-06-29 モバイル可読性チューニング（PC ≥769px は一切変更なし）
+   ========================================================================= */
+@media (max-width: 768px) {
+    /* 横スクロール防止（各セクション単位で確実に閉じ込める） */
+    html, body { overflow-x: hidden; }
+    main, section { overflow-x: hidden; max-width: 100%; }
+
+    /* 本文を少し大きく（全体の読みやすさUP） */
+    html { font-size: 84%; }
+
+    /* ヒーロー：モバイルはブロックレイアウトにして余白・折り返しを安定化 */
+    .hero { min-height: auto; padding: 96px 0 56px; }
+    .hero-inner { align-items: stretch; padding: 0 24px; }
+    .hero-content { width: 100%; max-width: 100%; min-width: 0; margin: 0 auto; }
+    .hero-subtitle, .hero-title, .hero-flow-diagram { width: 100%; max-width: 100%; }
+    .hero-description { width: calc(100vw - 48px); max-width: 100%; margin: 0 auto 2rem; }
+
+    /* PC用の手動改行を無効化 → スマホは自然に折り返す（不自然な改行の解消） */
+    .hero-description br,
+    .story-catch-sub br,
+    .who-lead br,
+    .who-trigger br,
+    .booking-lead br { display: none; }
+
+    /* 文字間を詰めて折り返しの乱れ・文字崩れを防ぐ */
+    body { letter-spacing: 0.02em; line-height: 1.85; }
+
+    /* ヒーロータイトル：2行が画面内に必ず収まる可変サイズに */
+    .hero-title {
+        font-size: clamp(1.15rem, 5.4vw, 1.7rem);
+        letter-spacing: 0;
+        line-height: 1.55;
+        margin-bottom: 1.6rem;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+    .hero-subtitle { font-size: 0.95rem; margin-bottom: 1rem; letter-spacing: 0.04em; }
+    .hero-subtitle .highlight { font-size: 1.1rem; }
+    .hero-description { font-size: 1rem; line-height: 2; }
+
+    /* 見出しまわりをコンパクト＆読みやすく */
+    .section-title { font-size: 1.8rem; line-height: 1.5; }
+    .section-subtitle { font-size: 0.92rem; }
+
+    /* リード文・トリガーの行間を確保 */
+    .who-lead { font-size: 1rem; line-height: 2; }
+    .who-trigger { font-size: 1.02rem; line-height: 1.95; }
+    .story-catch-sub { line-height: 1.95; }
+    .intro-texts p, .intro-texts .intro-lead { line-height: 1.95; }
+}
+
 /* 登壇・プレゼンスライド カルーセル（16:9） */
 .slide-carousel {
     display: flex;
