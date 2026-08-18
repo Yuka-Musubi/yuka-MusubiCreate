@@ -1572,8 +1572,13 @@ h6 {
 .manga-placeholder-wide { width: 100%; max-width: 760px; margin: 0 auto; min-height: 280px; }
 
 /* Sheet buttons (Profile) */
-.sheet-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-.sheet-buttons .btn { font-size: 0.85rem; padding: 12px 20px; }
+.sheet-buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-top: 36px; }
+.sheet-buttons .btn { font-size: 1rem; padding: 18px 34px; }
+
+@media (max-width: 768px) {
+    .sheet-buttons { gap: 12px; margin-top: 28px; }
+    .sheet-buttons .btn { width: 100%; justify-content: center; font-size: 0.95rem; padding: 16px 20px; }
+}
 
 /* Who I help */
 .who-lead {
