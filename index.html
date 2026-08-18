@@ -66,7 +66,11 @@
                         </div>
                     </div>
 
-                    <a href="#booking" class="btn btn-primary mt-4">無料相談はこちら</a>
+                    <p class="hero-pre-cta">1to1でお会いする前に、3分だけ私を知ってください。</p>
+                    <div class="hero-cta-group">
+                        <a href="#whoiam" class="btn btn-primary">3分で分かる、私のこと</a>
+                        <a href="#booking" class="btn btn-outline">無料相談はこちら</a>
+                    </div>
                 </div>
                 <!-- (ファーストビューの人物イラストは削除) -->
             </div>
@@ -154,11 +158,56 @@
             <div class="lightbox-counter"></div>
         </div>
 
-        <!-- Profile Section (moved directly under My Story) -->
-        <section class="profile section-spacing">
+        <!-- Who I am（人柄・生い立ちのストーリー／旧・登壇スライドを人柄紹介として再構成） -->
+        <section class="my-roots section-spacing" id="whoiam">
             <div class="container fade-in">
-                <h2 class="section-title">Profile</h2>
+                <h2 class="section-title">Who I am</h2>
+                <p class="section-subtitle text-center">私が、この仕事をしている理由</p>
+                <p class="who-lead text-center">
+                    保健室の先生から、ビジネスマンガへ。<br>
+                    私がどんな人間で、これからどこを目指しているのか——<span class="emph">7枚の物語</span>でお話しします。
+                </p>
+                <p class="slider-hint"><i class="fa-solid fa-hand-pointer"></i> スワイプでご覧いただけます</p>
 
+                <div class="slide-carousel roots-carousel" id="rootsCarousel">
+                    <div class="slide-item" data-caption="“伝わらない”を“伝わる”に。ビジネスマンガの鈴木ゆかです。少しだけ、私の物語を聞いてください。">
+                        <img src="./images/comic/sd1.webp" alt="“伝わらない”を“伝わる”に — 鈴木ゆかの物語のはじまり" class="clickable-image" loading="lazy">
+                    </div>
+                    <div class="slide-item" data-caption="もともとは、保健室の先生でした。“誰かのためになる”とは、勉強ができることではなく“相手を知ること”なんだと、大学の4年間で学びました。">
+                        <img src="./images/comic/sd2.webp" alt="相手を知ること — 人生観が変わった大学の4年間" class="clickable-image" loading="lazy">
+                    </div>
+                    <div class="slide-item" data-caption="朝6時の部活から、夜23時の不登校対応まで。それでも“ゆか先生なら会える”と、夜の保健室に子どもが訪ねてくる。私の天職でした。">
+                        <img src="./images/comic/sd3.webp" alt="それでも天職でした — 保健室の先生としての日々" class="clickable-image" loading="lazy">
+                    </div>
+                    <div class="slide-item" data-caption="大好きな仕事を辞めたのは、娘が生まれたから。保健室の先生の代わりはいる。だけど“この子の母親は、世界に私だけ”でした。">
+                        <img src="./images/comic/sd5.webp" alt="この子の母親は、世界に私だけ — 娘の誕生で選んだ道" class="clickable-image" loading="lazy">
+                    </div>
+                    <div class="slide-item" data-caption="子どもの“言葉にならない想い”を引き出して、形にする。保健室で続けてきたその力は、経営者さんにこそ必要な力でした。">
+                        <img src="./images/comic/sd4.webp" alt="保健室の“傾聴力”が、仕事になった" class="clickable-image" loading="lazy">
+                    </div>
+                    <div class="slide-item" data-caption="“伝わらない”で困る人を、ひとりでも減らしたい。専門用語や言葉の壁で置いていかれる人をなくす——私はこれを“情報のユニバーサルデザイン”と呼んでいます。">
+                        <img src="./images/comic/sd6.webp" alt="情報のユニバーサルデザイン — 目指している場所" class="clickable-image" loading="lazy">
+                    </div>
+                    <div class="slide-item" data-caption="元・保健室の先生が、あなたの“伝わらない”を“伝わる”に変えます。ビジネスマンガといえば、鈴木ゆか。">
+                        <img src="./images/comic/sd7.webp" alt="“伝わらない”を“伝わる”に — ビジネスマンガといえば、鈴木ゆか" class="clickable-image" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="roots-caption-wrap">
+                    <p class="roots-caption" id="rootsCaption">“伝わらない”を“伝わる”に。ビジネスマンガの鈴木ゆかです。少しだけ、私の物語を聞いてください。</p>
+                    <div class="roots-dots" id="rootsDots" aria-hidden="true"></div>
+                </div>
+
+                <p class="roots-note">※ このスライドは、すべて私が制作したビジネスマンガです。</p>
+
+                <!-- 目指す先（旧Visionを統合） -->
+                <div class="roots-vision">
+                    <p class="roots-vision-lead">「伝わらない」で困る人を、ひとりでも減らしたい。</p>
+                    <p>専門用語や言葉の壁で置いていかれる人を、マンガの力で“誰が見ても、ちゃんと伝わる”に変えていく。私はこれを<strong>「情報のユニバーサルデザイン」</strong>と呼んでいます。</p>
+                    <p>いずれは企業・行政のマニュアルを、外国籍や障がいのある方にも伝わる形に。将来は、ビジネスマンガ制作の講座・コンテンツ展開も目指しています。</p>
+                </div>
+
+                <!-- プロフィール（旧Profileを統合） -->
                 <div class="profile-card mt-5 shadow-soft profile-card-vertical">
                     <div class="profile-info-col">
                         <div class="profile-header">
@@ -176,7 +225,7 @@
                                 <dd>「誰かのために」という想いを行動に変え続けること。娘との時間を大切にしながら、クライアントの「伝わらない」を「伝わる」に変え、その価値を世界に届けるサポートに全力を注いでいます。</dd>
                             </dl>
                         </div>
-                        <!-- Sheet buttons: GAINS modal + PDF + Download / 略歴 PDF + Download -->
+                        <!-- Sheet buttons: GAINS modal + PDF / 略歴 PDF -->
                         <div class="sheet-buttons">
                             <button type="button" class="btn btn-primary" id="openGainsModal">
                                 <i class="fa-solid fa-id-card" style="margin-right:8px;"></i>G.A.I.N.S.を見る
@@ -188,9 +237,6 @@
                                 <i class="fa-solid fa-file-pdf" style="margin-right:8px;"></i>略歴シート（PDF）
                             </a>
                         </div>
-                    </div>
-                    <div class="profile-image-col">
-                        <img src="./images/manga3.png" alt="プロフィール/マンガ" class="profile-main-img clickable-image" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -230,57 +276,56 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- お繋ぎのお願い（新設） -->
+        <section class="referral section-spacing">
+            <div class="container fade-in">
+                <h2 class="section-title">こんな方がいたら、<br class="sp-only">ぜひお繋ぎください</h2>
+                <p class="section-subtitle text-center">お心当たりの方がいらっしゃったら、<br class="sp-only">教えていただけると嬉しいです</p>
+
+                <div class="referral-grid mt-5">
+                    <div class="referral-card shadow-soft">
+                        <h3 class="referral-card-title"><i class="fa-solid fa-comment-dots"></i>マンガでお役に立てる方</h3>
+                        <ul class="referral-list">
+                            <li>専門用語が伝わらず、<strong>差別化に悩んでいる士業</strong>の方</li>
+                            <li>サービスが難しくて、<strong>価値が伝わりきらない経営者・専門職</strong>の方</li>
+                            <li>研修のマニュアルやスライドを、<strong>分かりやすくしたい講師</strong>の方</li>
+                        </ul>
+                    </div>
+                    <div class="referral-card shadow-soft">
+                        <h3 class="referral-card-title"><i class="fa-solid fa-handshake-angle"></i>一緒にお仕事できたら嬉しい方</h3>
+                        <ul class="referral-list">
+                            <li><strong>スタートアップの立ち上げ</strong>を支援しているコンサルタントの方</li>
+                            <li><strong>ホームページやLP</strong>を制作されている方</li>
+                            <li><strong>経営者・専門職向けにコンサルティング</strong>をされている方</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="who-trigger">
                     <p>
                         <i class="fa-solid fa-quote-left"></i>
-                        「<strong>自分の専門性が、どうも伝わらない</strong>」が口ぐせの、<br>
-                        <strong>セミナー・研修講師さん／士業さん</strong>がいたら、ぜひお繋ぎください。
+                        「<strong>自分の専門性が、どうも伝わらない</strong>」が口ぐせの方が<br class="sp-only">いらっしゃったら、<br>
+                        ぜひ、私を思い出してください。
                         <i class="fa-solid fa-quote-right"></i>
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Our Strengths -->
-        <section class="strengths section-spacing">
-            <div class="container fade-in">
-                <h2 class="section-title">成果につながる<br class="sp-only">4つの強み</h2>
-
-                <div class="card-grid mt-5">
-                    <div class="card">
-                        <div class="card-icon"><i class="fa-solid fa-ear-listen"></i></div>
-                        <h3>10年以上の傾聴経験によるヒアリング力</h3>
-                        <p>元保健室の先生として「自分の良さが分からない」と悩む生徒に向き合ってきた経験を活かし、講師・士業の専門性を引き出して言語化。マンガのシナリオに落とし込みます。</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
-                        <h3>AI×手作業で仕上げる制作力</h3>
-                        <p>AIのスピードを活かしながら、色・表情・コマ割りを細部まで手作業で調整。「AIでポンと出すだけ」では表現しきれない“あなたらしさ”を、こだわって視覚化します。</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
-                        <h3>年商2億円規模の現場で培った実行力</h3>
-                        <p>約500名規模の環境で評価され、代表から直接声をかけられてスタッフに選出。年商2億円規模の企業サポートを通じ、実践的なAI活用とマーケ支援の経験を積んできました。</p>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon"><i class="fa-solid fa-language"></i></div>
-                        <h3>「伝わらない」を「伝わる」に翻訳する力</h3>
-                        <p>難しい専門用語や実績を、誰にでも伝わる言葉とマンガに“翻訳”。傾聴で引き出し、マーケ視点で構成する——AIだけに頼らない「伝わる設計」が私の強みです。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Service Flow & Manga Showcase -->
+        <!-- できること（サービス内容＋制作フロー＋4つの強み を統合） -->
         <section class="service-flow section-spacing bg-white">
             <div class="container fade-in">
-                <h2 class="section-title">サービス内容</h2>
-                <p class="section-subtitle text-center">「難しい専門性」を「伝わる魅力」に変える制作フロー</p>
+                <h2 class="section-title">できること</h2>
+                <p class="section-subtitle text-center">「難しい専門性」を「伝わる魅力」に変える</p>
 
                 <p class="service-main-note text-center mt-4">
                     主力は <strong>自己紹介・事業紹介マンガ</strong>。あわせて、公式LINE集客 / 専門用語の翻訳マンガ / 研修・ケーススタディ用マンガ / 動画化 / SNS運用 まで対応できます。
                 </p>
 
+                <h3 class="subsection-title text-center mt-6">制作の流れ</h3>
                 <div class="process-wrapper mt-5">
                     <div class="process-item">
                         <div class="process-header">
@@ -318,7 +363,7 @@
                 </div>
 
                 <div class="manga-section mt-6">
-                    <h3 class="subsection-title text-center">ビジネスマンガのメリット</h3>
+                    <h3 class="subsection-title text-center">マンガだと、なぜ伝わるのか</h3>
                     <p class="text-center mb-4">「伝わらない」を「伝わる」に。そして、集客導線に乗せて“選ばれる”まで。ビジネスマンガの5つの強みです。</p>
                     <p class="slider-hint"><i class="fa-solid fa-hand-pointer"></i> スワイプでご覧いただけます</p>
                     <div class="slide-carousel">
@@ -329,40 +374,28 @@
                         <div class="slide-item"><img src="./images/comic/benefit_5.webp" alt="1つ作ると、何度も使えるPR資産に。Web・SNS・LINE・チラシ・営業資料・登壇資料へ展開でき、一度の制作を複数の場で活かせます。" class="clickable-image" loading="lazy"></div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- 登壇・プレゼン資料 -->
-        <section class="stage-deck section-spacing">
-            <div class="container fade-in">
-                <h2 class="section-title">登壇・プレゼン資料にも</h2>
-                <p class="section-subtitle text-center">スライドまるごと、ビジネスマンガで。</p>
-                <p class="who-lead text-center">セミナー講師さんの<strong>登壇資料・自己紹介プレゼン</strong>にも、ビジネスマンガを。<br>これは私自身がBNIのプレゼンで使ったスライドです（全編ビジネスマンガ）。</p>
-                <p class="slider-hint"><i class="fa-solid fa-hand-pointer"></i> スワイプでご覧いただけます</p>
-                <div class="slide-carousel">
-                    <div class="slide-item"><img src="./images/comic/sd1.webp" alt="スタートダッシュプレゼン：4つの画風で“伝わらない”を“伝わる”に（ビジネスマンガ）" class="clickable-image" loading="lazy"></div>
-                    <div class="slide-item"><img src="./images/comic/sd2.webp" alt="スタートダッシュプレゼン：相手を知ること（大学の4年間）" class="clickable-image" loading="lazy"></div>
-                    <div class="slide-item"><img src="./images/comic/sd3.webp" alt="スタートダッシュプレゼン：それでも天職でした（保健室の先生）" class="clickable-image" loading="lazy"></div>
-                    <div class="slide-item"><img src="./images/comic/sd4.webp" alt="スタートダッシュプレゼン：保健室の傾聴力が仕事になった" class="clickable-image" loading="lazy"></div>
-                    <div class="slide-item"><img src="./images/comic/sd5.webp" alt="スタートダッシュプレゼン：この子の母親は世界に私だけ" class="clickable-image" loading="lazy"></div>
-                    <div class="slide-item"><img src="./images/comic/sd6.webp" alt="スタートダッシュプレゼン：情報のユニバーサルデザイン" class="clickable-image" loading="lazy"></div>
-                    <div class="slide-item"><img src="./images/comic/sd7.webp" alt="スタートダッシュプレゼン：締め（“伝わらない”を“伝わる”に）" class="clickable-image" loading="lazy"></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Vision -->
-        <section class="intro section-spacing">
-            <div class="container text-center fade-in">
-                <h2 class="section-title">Vision</h2>
-                <div class="intro-texts">
-                    <p class="intro-lead">「伝わらない」で困る人を、ひとりでも減らしたい。</p>
-                    <p>専門用語や言葉の壁で置いていかれる人を、マンガの力で“誰が見ても、ちゃんと伝わる”に変えていく。私はこれを<strong>「情報のユニバーサルデザイン」</strong>と呼んでいます。</p>
-                    <p>いずれは企業・行政のマニュアルを、外国籍や障がいのある方にも伝わる形に。将来は、ビジネスマンガ制作の講座・コンテンツ展開も目指しています。</p>
-                </div>
-                <div class="vision-images mt-5 fade-in">
-                    <div class="vision-img-wrapper" style="max-width:760px;margin:0 auto;">
-                        <img src="./images/comic/3.webp" alt="情報のユニバーサルデザイン：いろんな人が同じマンガを見て笑顔" class="clickable-image shadow-soft" loading="lazy">
+                <h3 class="subsection-title text-center mt-6">成果につながる、4つの強み</h3>
+                <div class="card-grid mt-5">
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-ear-listen"></i></div>
+                        <h3>10年以上の傾聴経験によるヒアリング力</h3>
+                        <p>元保健室の先生として「自分の良さが分からない」と悩む生徒に向き合ってきた経験を活かし、講師・士業の専門性を引き出して言語化。マンガのシナリオに落とし込みます。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-palette"></i></div>
+                        <h3>AI×手作業で仕上げる制作力</h3>
+                        <p>AIのスピードを活かしながら、色・表情・コマ割りを細部まで手作業で調整。「AIでポンと出すだけ」では表現しきれない“あなたらしさ”を、こだわって視覚化します。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                        <h3>年商2億円規模の現場で培った実行力</h3>
+                        <p>約500名規模の環境で評価され、代表から直接声をかけられてスタッフに選出。年商2億円規模の企業サポートを通じ、実践的なAI活用とマーケ支援の経験を積んできました。</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon"><i class="fa-solid fa-language"></i></div>
+                        <h3>「伝わらない」を「伝わる」に翻訳する力</h3>
+                        <p>難しい専門用語や実績を、誰にでも伝わる言葉とマンガに“翻訳”。傾聴で引き出し、マーケ視点で構成する——AIだけに頼らない「伝わる設計」が私の強みです。</p>
                     </div>
                 </div>
             </div>
@@ -604,6 +637,70 @@
             if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
         }, { passive: true });
         update();
+    }());
+
+    // ====== Who I am：スワイプに合わせてキャプションを1枚ずつ切り替える ======
+    (function () {
+        var carousel = document.getElementById('rootsCarousel');
+        var caption = document.getElementById('rootsCaption');
+        var dotsWrap = document.getElementById('rootsDots');
+        if (!carousel || !caption || !dotsWrap) return;
+
+        var items = Array.prototype.slice.call(carousel.querySelectorAll('.slide-item'));
+        if (!items.length) return;
+
+        // インジケーター（ドット）を生成
+        items.forEach(function (item, i) {
+            var dot = document.createElement('span');
+            if (i === 0) dot.className = 'is-active';
+            dotsWrap.appendChild(dot);
+        });
+        var dots = Array.prototype.slice.call(dotsWrap.children);
+
+        var current = 0;
+        var fadeTimer = null;
+
+        function setActive(idx) {
+            if (idx === current) return;
+            current = idx;
+            var text = items[idx].getAttribute('data-caption') || '';
+            caption.classList.add('is-fading');
+            window.clearTimeout(fadeTimer);
+            fadeTimer = window.setTimeout(function () {
+                caption.textContent = text;
+                caption.classList.remove('is-fading');
+            }, 180);
+            dots.forEach(function (d, i) {
+                d.classList.toggle('is-active', i === idx);
+            });
+        }
+
+        // カルーセルの中央にいちばん近いスライドを現在地とする
+        function nearestIndex() {
+            var rect = carousel.getBoundingClientRect();
+            var center = rect.left + rect.width / 2;
+            var best = 0;
+            var bestDist = Infinity;
+            items.forEach(function (item, i) {
+                var r = item.getBoundingClientRect();
+                var dist = Math.abs((r.left + r.width / 2) - center);
+                if (dist < bestDist) { bestDist = dist; best = i; }
+            });
+            return best;
+        }
+
+        var ticking2 = false;
+        function onScroll() {
+            if (ticking2) return;
+            ticking2 = true;
+            window.requestAnimationFrame(function () {
+                setActive(nearestIndex());
+                ticking2 = false;
+            });
+        }
+
+        carousel.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
     }());
 </script>
 </body>
