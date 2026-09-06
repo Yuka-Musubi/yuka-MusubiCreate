@@ -1581,32 +1581,173 @@ h6 {
 }
 
 /* Who I help */
-.who-lead {
-    max-width: 720px;
-    margin: 24px auto 0;
-    font-size: 1.15rem;
+
+/* ── エディトリアル型セクション（2026-09-06）
+   英語ラベルを降格し、日本語のセリフを最大に。番号・直線下線は使わない ── */
+.sec-label {
+    display: block;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.3em;
+    text-indent: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 26px;
+}
+.sec-label.is-ja { text-transform: none; letter-spacing: 0.22em; text-indent: 0.22em; }
+
+.sec-voice {
+    max-width: 21em;
+    margin: 0 auto;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: clamp(1.7rem, 5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.65;
+    letter-spacing: 0.02em;
+    color: var(--text-main);
+    text-wrap: balance;
+}
+
+/* 文節の途中で折り返さない（中途半端な改行の対策）
+   ⚠️ span同士の間に空白・改行を入れないこと（入れると字間が空く） */
+.wb { display: inline-block; }
+
+/* ペルソナのセリフ＝太ゴシック（Source Han Sans JP / Noto Sans JP） */
+.is-voice {
+    font-family: var(--font-body);
+    font-weight: 800;
+    letter-spacing: 0.005em;
+    line-height: 1.58;
+}
+.sec-voice.is-voice { font-size: clamp(1.65rem, 4.6vw, 2.85rem); }
+
+/* B層＝信頼を積むセクション。明朝のまま中サイズ（太ゴシックにはしない） */
+.sec-head {
+    max-width: 24em;
+    margin: 0 auto;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: clamp(1.45rem, 3.2vw, 2.05rem);
+    font-weight: 600;
+    line-height: 1.75;
+    letter-spacing: 0.04em;
+    color: var(--text-main);
+    text-wrap: balance;
+}
+.sec-head + .section-subtitle { display: block; margin-top: 14px; text-align: center; }
+
+.sec-after.is-strong {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: clamp(1.15rem, 2.8vw, 1.55rem);
+    letter-spacing: 0.01em;
+    line-height: 1.85;
+    color: var(--text-main);
+}
+.sec-after {
+    max-width: 34em;
+    margin: 28px auto 0;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: clamp(1.05rem, 2.3vw, 1.3rem);
     line-height: 2;
     color: var(--text-main);
 }
-.who-lead .emph { color: var(--accent); font-weight: 600; }
-.who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-.who-card { background: var(--bg-color); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; }
-.who-card-media { padding: 24px 24px 0; }
-.who-card-media img { width: 100%; border-radius: var(--radius-md); }
-.who-card-body { padding: 24px 32px 36px; }
-.who-tag {
-    display: inline-block;
-    background: rgba(178, 123, 102, 0.12);
-    color: var(--accent);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    padding: 6px 14px;
-    border-radius: 999px;
-    margin-bottom: 16px;
+
+/* 筆で引いた下線（直線の下線は使わない）。1セクションに1箇所だけ */
+.brush {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20200%2012'%20preserveAspectRatio='none'%3E%3Cpath%20d='M1,7%20C32,3%2062,9%20100,5.5%20C138,2%20168,8%20199,4.5%20L199,8.4%20C168,11.8%20138,6.2%20100,9.6%20C62,13%2032,7.2%201,11.2%20Z'%20fill='%23B27B66'%20fill-opacity='0.62'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: 100% 0.52em;
+    background-position: 0 92%;
+    padding: 0 0.08em 0.06em;
 }
-.who-card-body h3 { font-size: 1.2rem; line-height: 1.6; margin-bottom: 14px; color: var(--text-main); }
-.who-card-body p { color: var(--text-light); font-size: 1.05rem; }
+
+.who-catch {
+    max-width: 860px;
+    margin: 32px auto 0;
+    font-family: var(--font-heading);
+    font-size: clamp(1.45rem, 3.6vw, 2.15rem);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    color: var(--text-main);
+}
+.who-catch .emph { color: var(--accent); }
+.who-lead {
+    max-width: 720px;
+    margin: 18px auto 0;
+    font-size: 1.05rem;
+    line-height: 2;
+    color: var(--text-light);
+}
+.who-lead .emph { color: var(--accent); font-weight: 600; }
+/* 金の卵：横並び3列をやめ、1枚ずつ大きな横帯に（画像が1400×650の横長のため）
+   偶数枚目は左右を反転してリズムを作る */
+.who-grid { display: flex; flex-direction: column; gap: 36px; }
+.who-card {
+    background: var(--bg-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.18fr 1fr;
+    align-items: center;
+    gap: 0 48px;
+    padding: 40px 48px;
+}
+.who-card:nth-child(even) .who-card-media { order: 2; }
+.who-card:nth-child(even) .who-card-body { order: 1; }
+.who-card-media { padding: 0; }
+.who-card-media img { width: 100%; border-radius: var(--radius-md); display: block; }
+.who-card-body { padding: 0; }
+@media (max-width: 900px) {
+    .who-card {
+        grid-template-columns: 1fr;
+        gap: 26px 0;
+        padding: 28px 26px 34px;
+    }
+    .who-tag { margin: -28px -26px 4px; padding: 16px 20px; letter-spacing: 0.05em; }
+    .who-card:nth-child(even) .who-card-media { order: 0; }
+    .who-card:nth-child(even) .who-card-body { order: 0; }
+}
+/* 誰のカードかを最初に読ませる：カード上部の全幅バンド */
+.who-tag {
+    grid-column: 1 / -1;
+    margin: -40px -48px 34px;
+    padding: 20px 28px;
+    background: rgba(178, 123, 102, 0.13);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: clamp(1.12rem, 2.5vw, 1.52rem);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 1.55;
+    color: var(--accent-hover);
+    text-wrap: balance;
+}
+.who-card-body h3 { font-size: clamp(1.3rem, 2.4vw, 1.85rem); line-height: 1.6; margin-bottom: 18px; color: var(--text-main); text-wrap: balance; }
+.who-card-body p { color: var(--text-light); font-size: 1.02rem; line-height: 1.95; }
+.who-card-body .who-after {
+    margin-top: 22px;
+    padding: 16px 20px;
+    border-top: none;
+    background: rgba(178, 123, 102, 0.09);
+    border-radius: var(--radius-md);
+    font-family: var(--font-heading);
+    font-size: clamp(1.14rem, 2vw, 1.34rem);
+    font-weight: 600;
+    line-height: 1.8;
+    color: var(--text-main);
+}
+.who-card-body .who-after::before {
+    content: "→";
+    color: var(--accent);
+    font-weight: 700;
+    margin-right: 0.55em;
+}
 .who-trigger {
     margin: 48px auto 0;
     max-width: 760px;
@@ -1621,6 +1762,13 @@ h6 {
     line-height: 1.9;
 }
 .who-trigger i { color: var(--accent); opacity: 0.5; margin: 0 6px; }
+.who-trigger .trigger-lead {
+    display: block;
+    font-size: clamp(1.2rem, 3vw, 1.62rem);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    color: var(--text-main);
+}
 .who-trigger strong { color: var(--accent); }
 
 /* Service main note */
@@ -1709,7 +1857,6 @@ h6 {
 .info-modal-actions { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
 
 @media (max-width: 768px) {
-    .who-grid { grid-template-columns: 1fr; }
     .manga-slider .manga-panel { width: 86%; }
     .portfolio-item { width: 82%; }
     .who-trigger { font-size: 1.05rem; padding: 28px 20px; }
@@ -1781,6 +1928,9 @@ h6 {
     /* PC用の手動改行を無効化 → スマホは自然に折り返す（不自然な改行の解消） */
     .hero-description br,
     .story-catch-sub br,
+    .sec-voice br,
+    .sec-after br,
+    .who-catch br,
     .who-lead br,
     .who-trigger br,
     .booking-lead br { display: none; }
@@ -1984,7 +2134,15 @@ h6 {
     line-height: 1.9;
 }
 
-.referral-list li + li { margin-top: 14px; }
+.referral-list li + li { margin-top: 16px; }
+
+.referral-list .referral-note {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-light);
+    font-size: 0.93rem;
+    line-height: 1.8;
+}
 
 .referral-list li::before {
     content: "";
