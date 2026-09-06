@@ -1853,6 +1853,11 @@ h6 {
     background: var(--accent); color: #fff; font-family: var(--font-heading); font-size: 0.9rem;
 }
 .gains-block p { color: var(--text-light); font-size: 0.98rem; margin: 0; }
+.gains-list { margin: 0; padding-left: 1.3em; }
+.gains-list li { margin-bottom: 10px; font-size: 0.98rem; color: var(--text-main); }
+.gains-list li b { display: block; font-weight: 700; }
+.gains-list li span { display: block; color: var(--text-light); font-size: 0.9rem; line-height: 1.8; }
+
 .gains-trigger { margin-top: 20px; background: rgba(178, 123, 102, 0.1); border-radius: var(--radius-md); padding: 16px 20px; font-size: 0.95rem; color: var(--text-main); }
 .info-modal-actions { display: flex; gap: 12px; justify-content: center; margin-top: 28px; flex-wrap: wrap; }
 
