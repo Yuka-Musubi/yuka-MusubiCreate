@@ -1,0 +1,438 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600&family=Noto+Sans+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+
+:root{
+  --bg:#FBF2F1;
+  --bg-soft:#FFF9F8;
+  --paper:#FFFDFC;
+  --paper-2:#F8EEEB;
+  --text:#332824;
+  --muted:rgba(51,40,36,0.56);
+  --border:#EEDFDA;
+  --accent:#B8847D;
+  --accent-2:#A56E68;
+}
+.slide{
+  width:100%;aspect-ratio:16/9;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0) 18%),
+    radial-gradient(900px 420px at 18% 0%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 62%),
+    linear-gradient(135deg, var(--bg-soft) 0%, var(--bg) 58%, #F4E5E1 100%);
+  font-family:'Noto Sans JP',sans-serif;
+  color:var(--text);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.slide::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg, rgba(184,132,125,0.015) 0 1px, transparent 1px 7px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0 1px, transparent 1px 12px);
+  opacity:0.22;
+  pointer-events:none;
+}
+.slide::after{
+  content:'';
+  position:absolute;inset:1.1%;
+  border:1px solid rgba(184,132,125,0.12);
+  border-radius:10px;
+  pointer-events:none;
+}
+.bg-deco{
+  position:absolute;inset:0;pointer-events:none;
+  opacity:0.42;
+}
+.petal{
+  position:absolute;
+  border-radius:58% 42% 55% 45% / 45% 52% 48% 55%;
+  opacity:0.05;
+  filter:blur(2px);
+}
+.gold{color:var(--accent);}
+.rose{color:var(--accent-2);}
+
+/* Header */
+.header{
+  padding:2.5% 5% 2%;
+  display:flex;align-items:flex-end;justify-content:space-between;
+  border-bottom:1px solid rgba(184,132,125,0.16);
+  position:relative;z-index:1;
+}
+.logo-area{}
+.logo-en{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(9px,1.4vw,18px);
+  letter-spacing:0.35em;
+  color:var(--accent);
+  font-style:italic;
+}
+.logo-ja{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(13px,2.2vw,28px);
+  font-weight:600;
+  color:var(--text);
+  letter-spacing:0.12em;
+  margin-top:2px;
+}
+.tagline{
+  font-size:clamp(7px,0.85vw,11px);
+  color:rgba(51,40,36,0.42);
+  letter-spacing:0.25em;
+  text-align:right;
+}
+
+/* Body */
+.body{
+  flex:1;display:grid;
+  grid-template-columns:1.1fr 1px 1.9fr;
+  position:relative;z-index:1;
+  overflow:hidden;
+}
+.divv{
+  background:linear-gradient(180deg,transparent,rgba(184,132,125,0.12) 25%,rgba(184,132,125,0.12) 75%,transparent);
+  margin:2% 0;
+}
+
+/* Left */
+.left{padding:3% 4%;display:flex;flex-direction:column;gap:2%;}
+.sec-label{
+  font-size:clamp(7px,0.8vw,10px);
+  letter-spacing:0.35em;color:var(--accent);
+  margin-bottom:3%;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:clamp(9px,1vw,13px);
+}
+.table-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  padding:0 1%;
+  margin-bottom:2%;
+  border-bottom:1px solid rgba(184,132,125,0.14);
+}
+.table-head-left,
+.table-head-right{
+  font-size:clamp(6px,0.72vw,9px);
+  letter-spacing:0.22em;
+  color:var(--muted);
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+}
+.table-head-right{
+  text-align:right;
+  padding-left:10px;
+}
+.plan-row{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  padding:2% 3%;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,238,235,0.9));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.78),
+    0 10px 26px rgba(113, 77, 72, 0.045);
+  margin-bottom:1.5%;
+  gap:6px;
+}
+.plan-row.pop{
+  border-color:rgba(184,132,125,0.32);
+  background:
+    linear-gradient(180deg, rgba(255,251,250,0.98), rgba(246,232,229,0.95));
+  box-shadow:
+    inset 0 0 0 1px rgba(184,132,125,0.08),
+    0 12px 30px rgba(113, 77, 72, 0.05);
+}
+.plan-left{}
+.plan-name{
+  font-size:clamp(8px,1.05vw,13px);
+  font-weight:500;color:var(--text);
+  line-height:1.3;
+}
+.plan-pages{
+  font-size:clamp(6px,0.72vw,9px);
+  color:rgba(51,40,36,0.45);
+  margin-top:2px;
+  letter-spacing:0.05em;
+}
+.plan-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(10px,1.3vw,17px);
+  color:var(--accent);white-space:nowrap;
+  font-weight:600;
+  line-height:1.1;
+}
+.plan-row.pop .plan-price{color:var(--accent-2);}
+
+/* Right */
+.right{padding:3% 4%;display:flex;flex-direction:column;gap:3%;}
+
+/* Flow */
+.flow-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(9px,1vw,13px);
+  color:var(--accent);letter-spacing:0.3em;
+  margin-bottom:2%;
+}
+.flow{display:flex;align-items:flex-start;gap:0;flex-wrap:nowrap;}
+.step{display:flex;flex-direction:column;align-items:center;flex:1;}
+.step-circle{
+  width:clamp(22px,3vw,38px);height:clamp(22px,3vw,38px);
+  border-radius:50%;
+  border:1px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(8px,1.1vw,14px);
+  color:var(--accent);
+  background:linear-gradient(180deg, rgba(255,255,255,0.84), rgba(184,132,125,0.1));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,0.8);
+  margin-bottom:5px;flex-shrink:0;
+}
+.step-name{
+  font-size:clamp(7px,0.95vw,12px);
+  font-weight:500;color:var(--text);
+  text-align:center;line-height:1.3;
+}
+.step-sub{
+  font-size:clamp(5px,0.68vw,8.5px);
+  color:rgba(51,40,36,0.38);
+  text-align:center;margin-top:2px;line-height:1.3;
+}
+.arr{
+  flex-shrink:0;
+  display:flex;align-items:center;
+  padding-bottom:20px;
+  width:clamp(12px,2.2vw,28px);
+}
+.arr-line{
+  width:100%;height:1px;
+  background:linear-gradient(90deg,rgba(184,132,125,0.16),rgba(184,132,125,0.45));
+  position:relative;
+}
+.arr-line::after{
+  content:'';position:absolute;right:-1px;top:-3px;
+  width:0;height:0;
+  border-left:5px solid rgba(184,132,125,0.52);
+  border-top:3px solid transparent;
+  border-bottom:3px solid transparent;
+}
+
+/* Options grid */
+.opts-title{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(9px,1vw,13px);
+  color:var(--accent);letter-spacing:0.3em;
+  margin-bottom:2%;
+}
+.opts-divider{border-top:1px solid rgba(184,132,125,0.13);padding-top:3%;}
+.opts-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:2%;
+}
+.opt{
+  padding:2.5% 3%;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.9), rgba(249,240,238,0.9));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.74),
+    0 8px 22px rgba(113, 77, 72, 0.035);
+}
+.opt-name{
+  font-size:clamp(7px,0.88vw,11px);
+  color:var(--accent-2);font-weight:500;
+  margin-bottom:3px;
+}
+.opt-price{
+  font-size:clamp(6px,0.78vw,10px);
+  color:rgba(51,40,36,0.53);
+  line-height:1.4;
+}
+
+/* Footer */
+.footer{
+  padding:1.5% 5%;
+  border-top:1px solid rgba(184,132,125,0.14);
+  display:flex;justify-content:space-between;align-items:center;
+  position:relative;z-index:1;
+}
+.footer-note{
+  font-size:clamp(6px,0.72vw,9px);
+  color:rgba(51,40,36,0.4);letter-spacing:0.1em;
+}
+.slide-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(8px,0.9vw,11px);
+  color:rgba(184,132,125,0.6);letter-spacing:0.2em;
+}
+
+/* Corner deco */
+.corner{position:absolute;width:clamp(16px,3.5vw,44px);height:clamp(16px,3.5vw,44px);opacity:0.28;}
+.ctl{top:0;left:0;border-top:1px solid var(--accent);border-left:1px solid var(--accent);}
+.ctr{top:0;right:0;border-top:1px solid var(--accent);border-right:1px solid var(--accent);}
+.cbl{bottom:0;left:0;border-bottom:1px solid var(--accent);border-left:1px solid var(--accent);}
+.cbr{bottom:0;right:0;border-bottom:1px solid var(--accent);border-right:1px solid var(--accent);}
+</style>
+
+<div class="slide">
+  <div class="corner ctl"></div><div class="corner ctr"></div>
+  <div class="corner cbl"></div><div class="corner cbr"></div>
+
+  <!-- Background petals -->
+  <div class="bg-deco">
+    <div class="petal" style="width:30vw;height:30vw;background:#efcfcd;top:-8%;right:-5%;transform:rotate(20deg);"></div>
+    <div class="petal" style="width:18vw;height:18vw;background:#e2beb9;bottom:5%;left:2%;transform:rotate(-15deg);"></div>
+    <div class="petal" style="width:12vw;height:12vw;background:#f5dfdc;bottom:20%;right:15%;transform:rotate(40deg);"></div>
+  </div>
+
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-en">AI Manga Studio</div>
+      <div class="logo-ja">AI 漫画制作サービス</div>
+    </div>
+    <div class="tagline">SERVICE GUIDE &nbsp;|&nbsp; 料金・プランのご案内</div>
+  </div>
+
+  <div class="body">
+    <!-- Left: Plans -->
+    <div class="left">
+      <div class="sec-label">料金プラン</div>
+
+      <div class="table-head">
+        <div class="table-head-left">内容（目安ページ）</div>
+        <div class="table-head-right">価格</div>
+      </div>
+
+      <div class="plan-row">
+        <div class="plan-left">
+          <div class="plan-name">名刺・自己紹介マンガ</div>
+          <div class="plan-pages">1〜2p｜第一印象ブランディング</div>
+        </div>
+        <div class="plan-price">¥38,000</div>
+      </div>
+
+      <div class="plan-row pop">
+        <div class="plan-left">
+          <div class="plan-name">会社・事務所紹介マンガ</div>
+          <div class="plan-pages">2〜3p｜信頼構築・営業ツール</div>
+        </div>
+        <div class="plan-price">¥58,000</div>
+      </div>
+
+      <div class="plan-row">
+        <div class="plan-left">
+          <div class="plan-name">チラシ・販促マンガ</div>
+          <div class="plan-pages">2〜3p｜集客・販売ツール</div>
+        </div>
+        <div class="plan-price">¥68,000</div>
+      </div>
+
+      <div class="plan-row">
+        <div class="plan-left">
+          <div class="plan-name">研修・セミナー資料マンガ</div>
+          <div class="plan-pages">2〜3p｜教育・ブランディング</div>
+        </div>
+        <div class="plan-price">¥68,000</div>
+      </div>
+
+      <div class="plan-row pop">
+        <div class="plan-left">
+          <div class="plan-name">ブランディング総合マンガ</div>
+          <div class="plan-pages">3〜5p｜世界観構築・最上位プラン</div>
+        </div>
+        <div class="plan-price">¥98,000〜</div>
+      </div>
+    </div>
+
+    <div class="divv"></div>
+
+    <!-- Right -->
+    <div class="right">
+      <!-- Flow -->
+      <div>
+        <div class="flow-title">— 完成までの流れ —</div>
+        <div class="flow">
+          <div class="step">
+            <div class="step-circle">1</div>
+            <div class="step-name">ヒアリング</div>
+            <div class="step-sub">60分<br>目的・世界観確認</div>
+          </div>
+          <div class="arr"><div class="arr-line"></div></div>
+          <div class="step">
+            <div class="step-circle">2</div>
+            <div class="step-name">キャラ作成</div>
+            <div class="step-sub">AI生成<br>ご確認・承認</div>
+          </div>
+          <div class="arr"><div class="arr-line"></div></div>
+          <div class="step">
+            <div class="step-circle">3</div>
+            <div class="step-name">シナリオ</div>
+            <div class="step-sub">構成案作成<br>修正1回</div>
+          </div>
+          <div class="arr"><div class="arr-line"></div></div>
+          <div class="step">
+            <div class="step-circle">4</div>
+            <div class="step-name">マンガ制作</div>
+            <div class="step-sub">AI＋手仕上げ<br>ご確認</div>
+          </div>
+          <div class="arr"><div class="arr-line"></div></div>
+          <div class="step">
+            <div class="step-circle">5</div>
+            <div class="step-name">修正対応</div>
+            <div class="step-sub">最大2回<br>細部調整</div>
+          </div>
+          <div class="arr"><div class="arr-line"></div></div>
+          <div class="step">
+            <div class="step-circle">6</div>
+            <div class="step-name">納品</div>
+            <div class="step-sub">データ納品<br>動画化も可</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Options -->
+      <div class="opts-divider">
+        <div class="opts-title">— オプション・追加メニュー —</div>
+        <div class="opts-grid">
+          <div class="opt">
+            <div class="opt-name">ショート動画化</div>
+            <div class="opt-price">＋¥28,000（2分以内）<br>X・YouTube・TikTok・Instagram</div>
+          </div>
+          <div class="opt">
+            <div class="opt-name">ミドル動画化</div>
+            <div class="opt-price">＋¥48,000（2〜5分）<br>Instagram長尺・YouTube対応</div>
+          </div>
+          <div class="opt">
+            <div class="opt-name">マンガページ追加</div>
+            <div class="opt-price">＋¥18,000 / p<br>既存案件への追加制作</div>
+          </div>
+          <div class="opt">
+            <div class="opt-name">スライド用コマ分割</div>
+            <div class="opt-price">＋¥3,000 / p<br>動画化セット時は無料</div>
+          </div>
+          <div class="opt">
+            <div class="opt-name">名刺印刷手配</div>
+            <div class="opt-price">印刷実費＋¥3,000<br>ご自宅配送込み</div>
+          </div>
+          <div class="opt">
+            <div class="opt-name">セット割引</div>
+            <div class="opt-price">マンガ＋動画セットで<br>¥8,000 OFF</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-note">※ページ数はヒアリング後に最適な構成をご提案します　／　価格はすべて税別</div>
+    <div class="slide-num">01 / 08</div>
+  </div>
+</div>
